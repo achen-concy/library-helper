@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="Viewport" content="width=device-width, initial-scale=1.0">
+    <title>Library Resource and Loan Helper</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header class="site-header">
+        <h1>Library Resource and Loan Helper</h1>
+        <nav aria-label="Main navigation">
+            <a href="index.html" arial-current="page">Catalogue</a>
+            <a href="reserve.html">Reserve</a>
+            <a href="loans.html">My Loans</a>
+        </nav>
+    </header>
+
+    <main>
+        <section aria-labelledby="search-heading" class="filters">
+            <h2 id="search-heading">Find a Resource</h2>
+
+            <lable for="searchInput">Search title or author</label>
+            <input type="search" id="searchInput">
+
+            <label for="categoryFilter">Category</label>
+            <select id="categoryFilter">
+                <option value="all">All</option>
+                <option>Programming</option>
+                <option>Web Development</option>
+                <option>Databases</option>
+                <option>Networking</option>
+                <option>Information Systems</option>
+                <option>Cybersecurity</option>
+                <option>Software Engineering</option>
+            </select>
+            <label for="availabilityFilter">Availability</label>
+            <select id="availabilityFilter">
+                <option value="all">All</option>
+                <option value="available">Available</option>
+                <option value="borrowed">Borrowed</option>
+            </select>
+        </section>
+
+        <section aria-labelledby="results-heading">
+            <h2 id="results-heading">Resources</h2>
+            <p id="resultCount" aria-live="polite"></p>
+            <div id="resourceList" class="card-grid"></div>
+            <p id="emptyMessage" hidden>No resources match your search.</p>
+            </section>
+    </main>
+
+    <footer><p>Sample data only. ITM 1131 group project.</p></footer>
+
+    <script src="js/data.js"></script>
+    <script src="js/catalogue.js"></script>
+</body>
+</html>
