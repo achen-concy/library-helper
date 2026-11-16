@@ -26,14 +26,13 @@ HTML5, CSS3 (Flexbox and Grid), JavaScript. No frameworks, no datsbase.
 - Fines rate and loan periods are sample values
 
 ## Team and responsibilities
-| Member | Name | Responsibility |
-|--------|-----------|
-|1  | Achen Concy | Group leader: repository, workflow, deployment, README |
-|2  | 
-|3  |
-|4  |
-|5  |
-|6  |
+| Member | Name             | Responsibility                                           |
+|1  | Achen Concy           | Group leader: repository, workflow, deployment, README.  |
+|2  | Akomi Innocent Tokuma | Data & Catalogue HTML - 'index.html', 'data.js'.         |
+|3  |Hassan Noah            | Search & Filter JS -'catalogue.js'.                      |
+|4  |Agandruga fred         | Reservation Form -'reserve.html', 'reserve.js'.          |
+|5  |Apuri Okello           | Loans & Calculations - 'loans.html', 'loans.js'.         |
+|6  |Munguleni Daniel       | CSS & Testing - 'style.css', responsiveness, screenshots.|
 
 ## Testing
 Testing evidence for mobile, tablet and desktop is in images/testing/.
