@@ -26,7 +26,8 @@ HTML5, CSS3 (Flexbox and Grid), JavaScript. No frameworks, no datsbase.
 - Fines rate and loan periods are sample values
 
 ## Team and responsibilities
-| Member | Name             | Responsibility                                           |
+|Member | Name              | Responsibility |
+|:--| :------------------| :--------------|                                           
 |1  | Achen Concy           | Group leader: repository, workflow, deployment, README.  |
 |2  | Akomi Innocent Tokuma | Data & Catalogue HTML - 'index.html', 'data.js'.         |
 |3  |Hassan Noah            | Search & Filter JS -'catalogue.js'.                      |
