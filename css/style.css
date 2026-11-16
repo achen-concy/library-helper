@@ -1,0 +1,242 @@
+/* ---------- 1. Global reset and variables ---------- */
+*,
+*::before,
+*::after {
+  Box-sizing: border-box;
+}
+
+:root {
+  --primary: #1f4e79;
+  --primary-dark: #163a5a;
+  --accent: #f2a900;
+  --bg: #f4f6f9;
+  --surface: #ffffff;
+  --text: #1c1c1c;
+  --muted: #5b6770;
+  --border: #d5dbe1;
+  --success-bg: #e3f6e8;
+  --success-text: #1b6b34;
+  --error-bg: #fde8e8;
+  --error-text: #a12020;
+  --radius: 8px;
+  --space: 1rem;
+}
+
+Body {
+  Margin: 0;
+  Font-family: “Segoe UI”, Arial, sans-serif;
+  Line-height: 1.5;
+  Color: var(--text);
+  Background: var(--bg);
+}
+
+H1, h2, h3 { line-height: 1.25; }
+H2 { color: var(--primary); margin-top: 2rem; }
+
+/* ---------- 2. Header and navigation (Flexbox) ---------- */
+.site-header {
+  Display: flex;
+  Flex-direction: column;
+  Gap: 0.5rem;
+  Padding: var(--space);
+  Background: var(--primary);
+  Color: #fff;
+}
+
+.site-header h1 {
+  Margin: 0;
+  Font-size: 1.3rem;
+}
+
+.site-header nav {
+  Display: flex;
+  Flex-wrap: wrap;
+  Gap: 0.5rem;
+}
+
+.site-header nav a {
+  Color: #fff;
+  Text-decoration: none;
+  Padding: 0.5rem 0.9rem;
+  Border-radius: var(--radius);
+  Transition: background 0.2s;
+}
+
+.site-header nav a:hover,
+.site-header nav a[aria-current=”page”] {
+  Background: var(--primary-dark);
+  Border-bottom: 3px solid var(--accent);
+}
+
+/* ---------- 3. Main layout ---------- */
+Main {
+  Max-width: 1000px;
+  Margin: 0 auto;
+  Padding: var(--space);
+}
+
+Section {
+  Margin-bottom: 2rem;
+}
+
+/* ---------- 4. Forms (Reserve & Calculator) ---------- */
+.form-group {
+  Margin-bottom: 1rem;
+  Display: flex;
+  Flex-direction: column;
+  Gap: 0.3rem;
+}
+
+Label {
+  Font-weight: 600;
+  Color: var(--primary-dark);
+}
+
+Input, select, textarea {
+  Padding: 0.6rem;
+  Border: 1px solid var(--border);
+  Border-radius: var(--radius);
+  Font-family: inherit;
+  Font-size: 1rem;
+  Width: 100%;
+  Max-width: 400px;
+}
+
+Input:focus, select:focus, textarea:focus {
+  Outline: 2px solid var(--accent);
+  Border-color: transparent;
+}
+
+.error {
+  Color: var(--error-text);
+  Font-size: 0.85rem;
+  Font-weight: 600;
+}
+
+/* ---------- 5. Buttons ---------- */
+.btn {
+  Background: var(--primary);
+  Color: white;
+  Border: none;
+  Padding: 0.7rem 1.5rem;
+  Font-size: 1rem;
+  Border-radius: var(--radius);
+  Cursor: pointer;
+  Font-weight: bold;
+  Margin-top: 0.5rem;
+}
+
+.btn:hover {
+  Background: var(--primary-dark);
+}
+
+/* ---------- 6. Messages (Success / Error) ---------- */
+.message {
+  Padding: 1rem;
+  Border-radius: var(--radius);
+  Margin-bottom: 1rem;
+  Font-weight: 500;
+}
+
+.message-error {
+  Background: var(--error-bg);
+  Color: var(--error-text);
+  Border: 1px solid var(--error-text);
+}
+
+.message-success {
+  Background: var(--success-bg);
+  Color: var(--success-text);
+  Border: 1px solid var(--success-text);
+}
+
+/* ---------- 7. Catalogue Grid (CSS Grid) ---------- */
+.card-grid {
+  Display: grid;
+  Grid-template-columns: 1fr; /* Mobile: 1 column */
+  Gap: 1rem;
+  Margin-top: 1rem;
+}
+
+.card {
+  Background: var(--surface);
+  Padding: 1rem;
+  Border-radius: var(--radius);
+  Border: 1px solid var(--border);
+  Box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+  Display: flex;
+  Flex-direction: column;
+  Gap: 0.5rem;
+}
+
+.status {
+  Display: inline-block;
+  Padding: 0.2rem 0.6rem;
+  Border-radius: 99px;
+  Font-size: 0.8rem;
+  Font-weight: bold;
+  Align-self: flex-start;
+}
+
+.status.available { background: var(--success-bg); color: var(--success-text); }
+.status.borrowed { background: var(--error-bg); color: var(--error-text); }
+
+/* ---------- 8. Loans Table ---------- */
+.table-wrap {
+  Overflow-x: auto; /* Scroll horizontally on mobile */
+  Background: var(--surface);
+  Border-radius: var(--radius);
+  Border: 1px solid var(--border);
+}
+
+Table {
+  Width: 100%;
+  Border-collapse: collapse;
+  Text-align: left;
+}
+
+Th, td {
+  Padding: 0.8rem;
+  Border-bottom: 1px solid var(--border);
+}
+
+Th {
+  Background: var(--bg);
+  Color: var(--primary);
+  Font-weight: bold;
+}
+
+.row-overdue {
+  Background: #fff1f1;
+  Color: var(--error-text);
+}
+
+/* ---------- 9. Footer ---------- */
+Footer {
+  Text-align: center;
+  Padding: 2rem var(--space);
+  Color: var(--muted);
+  Font-size: 0.9rem;
+  Border-top: 1px solid var(--border);
+  Margin-top: 3rem;
+}
+
+/* ---------- 10. Responsive Media Queries ---------- */
+/* Tablet */
+@media (min-width: 600px) {
+  .card-grid {
+    Grid-template-columns: repeat(2, 1fr); /* 2 columns */
+  }
+  .site-header {
+    Flex-direction: row;
+    Justify-content: space-between;
+    Align-items: center;
+  }
+}
+
+/* Desktop */
+@media (min-width: 900px) {
+  .card-grid {
+    Grid-template-columns: repeat(3, 1fr); /* 3 columns */
+  }
+}

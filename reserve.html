@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reserve a Resource | Library Helper</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <header class="site-header">
+        <h1>Library Resource and Loan Helper</h1>
+
+        <nav aria-label="Main navigation">
+            <a href="index.html">Catalogue</a>
+            <a href="reserve.html" aria-current="page">Reserve</a>
+            <a href="loans.html">My Loans</a>
+        </nav>
+    </header>
+
+    <main>
+        <h2>Reservation Request</h2>
+
+        <div id="formMessage" role="alert" aria-live="assertive" hidden></div>
+
+        <form id="reserveForm" novalidate>
+
+            <div class="form-group">
+                <label for="fullName">Full name</label>
+                <input type="text" id="fullName" name="fullName"
+                       Autocomplete="name">
+                <span class="error" id="fullNameError"></span>
+            </div>
+
+            <div class="form-group">
+                <label for="email">University email</label>
+                <input type="email" id="email" name="email"
+                       Autocomplete="email">
+                <span class="error" id="emailError"></span>
+            </div>
+
+            <div class="form-group">
+                <label for="userType">I am a</label>
+                <select id="userType" name="userType">
+                    <option value="">-- Select --</option>
+                    <option value="Student">Student</option>
+                    <option value="Lecturer">Lecturer</option>
+                    <option value="Library staff">Library staff</option>
+                </select>
+                <span class="error" id="userTypeError"></span>
+            </div>
+
+            <div class="form-group">
+                <label for="resourceId">Select resource</label>
+                <select id="resourceId" name="resourceId">
+                    <option value="">-- Select a resource --</option>
+                </select>
+                <span class="error" id="resourceIdError"></span>
+            </div>
+
+            <div class="form-group">
+                <label for="pickupDate">Preferred pick-up date</label>
+                <input type="date" id="pickupDate" name="pickupDate">
+                <span class="error" id="pickupDateError"></span>
+            </div>
+
+            <div class="form-group">
+                <label for="notes">Notes (optional)</label>
+                <textarea id="notes" name="notes" rows="3"
+                          Maxlength="200"></textarea>
+            </div>
+
+            <button type="submit" class="btn">Submit request</button>
+
+        </form>
+    </main>
+
+    <footer>
+        <p>Sample data only. Do not enter real personal details.</p>
+    </footer>
+
+    <script src="js/data.js"></script>
+    <script src="js/reserve.js"></script>
+
+</body>
+</html>
+  

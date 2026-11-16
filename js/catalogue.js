@@ -2,12 +2,16 @@ const searchInput = document.getElementById("searchInput");
 const categoryFilter = document.getElementById("categoryFilter");
 const availabilityFilter = document.getElementById("availabilityFilter");
 const resourceList = document.getElementById("resourceList");
-const resultCount = document.getElementById("resultCountt");
-const emptyMessage = document.getElementsById("emptyMessage");
+const resultCount = document.getElementById("resultCount");
+const emptyMessage = document.getElementById("emptyMessage");
+console.log("Search:", searchInput);
+console.log("Category:", categoryFilter);
+console.log("Availability:", availabilityFilter);
 
-// 1. Search + filter
 function filterResources() {
-    const term = searchInput.Value.trim().toLowerCase();
+    const term = 
+    String(searchInput.value || "").trim().toLowerCase();
+    console.log("Search input:", searchInput);
     const category = categoryFilter.value;
     const availability = availabilityFilter.value;
 
@@ -15,25 +19,28 @@ function filterResources() {
         const matchesTerm =
         item.title.toLowerCase().includes(term) ||
         item.author.toLowerCase().includes(term);
-        const matchesCategory = category === "all" || item.category === category;
-        const matchesAvailability =
-            availability === "all" ||
-            (availability === "available" && item.available) ||
-            (availability === "borrowed" && !item.available);
+        String(item.title ?? "").toLowerCase().includes(term)||
+        String(item.author ?? "").toLowerCase().includes(term);
+        console.log("Search value:", searchInput.value);
+        item.title.toLowerCase().includes(term) ||
 
-        return matchesTerm && matchesCategory && matchesAvailability;
-    });
-    }
+        item.author.toLowerCase().includes(term);
+     const matchesCategory = category === "all" || item.category === category;
+     const matchesAvailability =
+      availability === "all" ||
+      (availability === "available" && item.available === true) ||
+      (availability === "borrowed" && item.available === false);
 
-    // 2. Sort by title (A-Z)
-    function SortResources(listt) {
-        return arguments.title.localeCompare(b.title);
+      return matchesTerm && matchesCategory && matchesAvailability;
     });
 }
-
-// 3. Show results, including the empty state
+function sortResources(list) {
+    return list.slice().sort(function (a, b) {
+        return a.title.localeCompare(b.title);
+    });
+}
 function renderResources() {
-    const results = SortResources(filterResources());
+    const results = sortResources(filterResources());
     resourceList.innerHTML = "";
 
     if (results.length === 0) {
@@ -41,7 +48,7 @@ function renderResources() {
         resultCount.textContent = "0 resources found.";
         return;
     }
-    
+
     emptyMessage.hidden = true;
     resultCount.textContent = results.length + " resource(s) found.";
 
@@ -50,19 +57,26 @@ function renderResources() {
         card.className = "card";
         card.innerHTML =
         "<h3>" + item.title + "</h3>" +
-        "<p>"Author: " + item.author + "</p>" +
+        "<p>Author: " + item.author + "</p>" +
         "<p>Category: " + item.category + "</p>" +
         "<p>Location: " + item.location + "</p>" +
+        '<p class="status ' + (item.available ? "available" : "borrowed") + '">' +
         (item.available ? "Available" : "Borrowed") + "</p>" +
-                '<a class="btn" href="reserve.html?id=' + item.id + '">' +
+        '<a class="btn"  href="reserve.html?id=' + item.id + '">' +
         (item.available ? "Reserve" : "Join waiting list") + "</a>";
         resourceList.appendChild(card);
     });
 }
-
-// 4. Re-run on every change
+ 
 searchInput.addEventListener("input", renderResources);
 categoryFilter.addEventListener("change", renderResources);
 availabilityFilter.addEventListener("change", renderResources);
 
 renderResources();
+
+
+    
+
+
+
+
